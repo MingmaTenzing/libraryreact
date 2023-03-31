@@ -7,31 +7,22 @@ import { useEffect } from "react";
 import { useState, useRef } from "react";
 
 const Book = ({ book }) => {
-  const [img, setImg] = useState();
-const mountedRef = useRef(true);
+  const [laoding, setLoading] = useState(false);
   useEffect(() => {
-    const image = new Image();
-    image.src = book.url;
-    image.onload = () => {
-      setTimeout(() => {
-       if(mountedRef.current === false) {
-        setImg(image);
-       } 
-      }, 200);
-    };
-    return () => {
-      mountedRef.current = false;
-    }
-     
-  });
-
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      
+    }, 3000);
+ 
+  }, [])
   return (
     <div className="book">
-      {img ? (
+      {!laoding ? (
         <>
           <Link to={`/books/${book.id}`}>
             <figure className="book__img--wrapper">
-              <img src={img.src}></img>
+              <img src={book.url}></img>
             </figure>
           </Link>
           <div className="book__title">
