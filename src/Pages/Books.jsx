@@ -3,14 +3,14 @@ import Book from "../components/ui/Book";
 import { books } from "../data";
 
 const Books = ({ books: initialBooks }) => {
-  const [books, setBooks] = useState(initialBooks);
+  const [booksdata, setBooksData] = useState(initialBooks);
   
    
     
   
   function filterBooks(filter) {
     if (filter === "LOW_TO_HIGH") {
-      setBooks(
+      setBooksData(
         books
           .slice()
           .sort(
@@ -22,7 +22,7 @@ const Books = ({ books: initialBooks }) => {
     }
 
     if (filter === "HIGH_TO_LOW") {
-      setBooks(
+      setBooksData(
         books
           .slice()
           .sort(
@@ -35,7 +35,7 @@ const Books = ({ books: initialBooks }) => {
     }
 
     if (filter === "RATING") {
-      setBooks(books.slice().sort((a, b) => b.rating - a.rating));
+      setBooksData(books.slice().sort((a, b) => b.rating - a.rating));
     }
   }
   console.log(books);
@@ -64,7 +64,7 @@ const Books = ({ books: initialBooks }) => {
                 </select>
               </div>
               <div className="books">
-                {books.map((book) => (
+                {booksdata.map((book) => (
                   <Book book={book} key={book.id} />
                 ))}
               </div>
