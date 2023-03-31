@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Book from "../components/ui/Book";
 import Price from "../components/ui/Price";
@@ -9,6 +9,10 @@ import LeftArrow from '../assets/left-arrow.svg'
 const  BookInfo = ({ books, addToCart, cart, cartnumber }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[book])
  
   function addBookToCart(book) {
     addToCart(book);

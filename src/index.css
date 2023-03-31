@@ -225,7 +225,8 @@ LANDING
 */
 
 #landing {
-  background-color: rgba(115, 66, 214, 0.1)
+  background-color: rgba(115, 66, 214, 0.1);
+  padding-top: 40px;
 }
 
 header {
