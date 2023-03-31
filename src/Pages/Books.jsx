@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Book from "../components/ui/Book";
-import { books } from "../data.js";
+import { books } from "../data";
 
 const Books = ({ books: initialBooks }) => {
   const [books, setBooks] = useState(initialBooks);
@@ -31,13 +31,14 @@ const Books = ({ books: initialBooks }) => {
               (a.salePrice || a.originalPrice)
           )
       );
-      console.log(books);
+
     }
 
     if (filter === "RATING") {
       setBooks(books.slice().sort((a, b) => b.rating - a.rating));
     }
   }
+  console.log(books);
   return (
     <div id="books__body">
       <main className="books__main">
